@@ -1,23 +1,19 @@
 <script>
-    import Card from './Card.vue'
     export default {
         data() {
             return {
+
             }
-        },
-        components: {
-            Card
         }
     }
 </script>
 
 <template>
     <div>
-        <Card />
-        main
+        <img src="" alt="">
+        img
     </div>
 </template>
 
 <style scoped>
-
 </style>
