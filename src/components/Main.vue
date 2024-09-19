@@ -16,7 +16,8 @@
 <template>
     <div class="card-list-container">
         <Card v-for='(movie, index) in store.movies' :key='index' :title="movie.title" :overview="movie.overview"
-            :poster="movie.poster" :original_language="movie.original_language" :bandiera="movie.bandiera" />
+            :poster="movie.poster" :original_language="movie.original_language" :bandiera="movie.bandiera"
+            :voto="movie.valutazione" />
     </div>
 </template>
 

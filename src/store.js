@@ -5,6 +5,9 @@ export const store = reactive({
     movies: [],
     moviesLength: 0,
 
+
+    // contiamo quanto vale voto in base a quant ovale stampiamo numero di stelle, dato che devono essere 10 stampiamo poi quelle rimanenti
+
     searchMovie: '', 
     selectedLanguage: '', 
 
@@ -61,7 +64,8 @@ export const store = reactive({
                     overview: movie.overview,
                     original_language: movie.original_language,
                     poster: movie.poster_path ? `https://image.tmdb.org/t/p/original/${movie.poster_path}` : null,
-                    bandiera: this.linguaBandiera[movie.original_language]
+                    bandiera: this.linguaBandiera[movie.original_language],
+                    valutazione: movie.vote_average
                 }));
             } else {
                 console.error('non ha trovato nulla');

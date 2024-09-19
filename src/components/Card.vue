@@ -13,12 +13,25 @@
             bandiera: {
                 type: String,
             },
+            voto: {
+                type: Number,
+            },
             poster: {
                 type: String,
             }
-
+        },
+        computed: {
+            riempiStelle() {
+                const votoContato = this.voto / 2;
+                // arrontondamento
+                return Math.round(votoContato);
+            },
+            vuotoStelle() {
+                return 5 - this.riempiStelle;
+            }
         }
-    }</script>
+    }
+</script>
 
 <template>
     <div class="movie-container">
@@ -26,17 +39,34 @@
             <img :src="poster" alt="" />
         </div>
         <div>
-            <h3>{{ title }}</h3>
-            <p>{{ overview }}</p>
-            <p>{{ original_language }}</p>
+            <h3>titolo: {{ title }}</h3>
+            <p>trama: {{ overview }}</p>
+            <p>lingua: {{ original_language }}</p>
             <div class="bandierina-container">
                 <img :src="bandiera" alt="">
             </div>
+            <font-awesome-icon icon="star" v-for='numero in riempiStelle' class="riempito" />
+            <font-awesome-icon icon="star" v-for='numero in vuotoStelle' class="nonRiempito" />
+            <p>voto: {{ voto / 2}} </p>
         </div>
     </div>
 </template>
 
 <style scoped>
+    button {
+        height: 20px;
+        width: 20px;
+    }
+
+
+    .riempito {
+        color: yellow;
+    }
+
+    .nonRiempito {
+        color: red;
+    }
+
     .movie-container {
         width: 100%;
         height: 200px;
